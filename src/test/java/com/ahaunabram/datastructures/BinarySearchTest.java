@@ -5,6 +5,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+//Would be nice to have each test run against all three binary search implementations.
 public class BinarySearchTest {
 
     @Test
