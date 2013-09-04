@@ -3,44 +3,41 @@ package com.ahaunabram.datastructures;
 import java.util.Arrays;
 
 public class MergeSort {
-    public static int[] mergeSort(final int[] unsorted) {
-
-        int length = unsorted.length;
-        if (length == 1) {
-            return unsorted;
-        }
+    public static int[] mergeSort(final int[] input) {
+        int length = input.length;
+        if (length == 1) return input;
         int mid = length/2;
-        
-        int[] a = Arrays.copyOfRange(unsorted, 0, mid);
-        int[] b = Arrays.copyOfRange(unsorted, mid, length);
-        int[] aSorted = mergeSort(a);
-        int[] bSorted = mergeSort(b);
+        int[] a = Arrays.copyOfRange(input, 0, mid);
+        int[] b = Arrays.copyOfRange(input, mid, length);
+        return merge(mergeSort(a), mergeSort(b));
+    }
+
+    private static int[] merge(int[] a, int[] b) {
+        int[] sorted = new int[a.length + b.length];
+        int i=0;
         int aIndex = 0;
         int bIndex = 0;
-        int i=0;
-        int[] sorted = new int[length];
-        while (i<length) {
-            if (aSorted[aIndex] < bSorted[bIndex]) {
-                sorted[i] = aSorted[aIndex];
+        while (i<sorted.length) {
+            if (a[aIndex] < b[bIndex]) {
+                sorted[i++] = a[aIndex];
                 aIndex++;
-            } else if (aSorted[aIndex] > bSorted[bIndex]) {
-                sorted[i] = bSorted[bIndex];
+            } else if (a[aIndex] > b[bIndex]) {
+                sorted[i++] = b[bIndex];
                 bIndex++;
             } else {
-                sorted[i++] = aSorted[aIndex++];
-                sorted[i] = bSorted[bIndex++];
+                sorted[i++] = a[aIndex++];
+                sorted[i++] = b[bIndex++];
             }
-            i++;
             if (aIndex>=a.length) {
-                for (; bIndex<bSorted.length; bIndex++) {
-                    int bValue = bSorted[bIndex];
+                for (; bIndex<b.length; bIndex++) {
+                    int bValue = b[bIndex];
                     sorted[i++] = bValue;
                 }
                 return sorted;
             }
             if (bIndex>=b.length) {
-                for (; aIndex<aSorted.length; aIndex++) {
-                    int aValue = aSorted[aIndex];
+                for (; aIndex<a.length; aIndex++) {
+                    int aValue = a[aIndex];
                     sorted[i++] = aValue;
                 }
                 return sorted;
