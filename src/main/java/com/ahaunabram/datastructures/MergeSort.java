@@ -13,9 +13,9 @@ public class MergeSort {
     }
 
     //assumes a and b are already sorted, otherwise results unpredictable!
-    protected static int[] merge(int[] a, int[] b) {
+    protected static int[] merge(final int[] a, final int[] b) {
         int[] merged = new int[a.length + b.length];
-        int i=0;
+        int i = 0;
         int aIndex = 0;
         int bIndex = 0;
         while (aIndex<a.length && bIndex<b.length) {
