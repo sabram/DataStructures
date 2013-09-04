@@ -12,37 +12,28 @@ public class MergeSort {
         return merge(mergeSort(a), mergeSort(b));
     }
 
-    private static int[] merge(int[] a, int[] b) {
-        int[] sorted = new int[a.length + b.length];
+    //assumes a and b are already sorted, otherwise results unpredictable!
+    protected static int[] merge(int[] a, int[] b) {
+        int[] merged = new int[a.length + b.length];
         int i=0;
         int aIndex = 0;
         int bIndex = 0;
-        while (i<sorted.length) {
-            if (a[aIndex] < b[bIndex]) {
-                sorted[i++] = a[aIndex];
-                aIndex++;
+        while (aIndex<a.length && bIndex<b.length) {
+            if (a[aIndex] <= b[bIndex]) {
+                merged[i++] = a[aIndex++];
             } else if (a[aIndex] > b[bIndex]) {
-                sorted[i++] = b[bIndex];
-                bIndex++;
-            } else {
-                sorted[i++] = a[aIndex++];
-                sorted[i++] = b[bIndex++];
-            }
-            if (aIndex>=a.length) {
-                for (; bIndex<b.length; bIndex++) {
-                    int bValue = b[bIndex];
-                    sorted[i++] = bValue;
-                }
-                return sorted;
-            }
-            if (bIndex>=b.length) {
-                for (; aIndex<a.length; aIndex++) {
-                    int aValue = a[aIndex];
-                    sorted[i++] = aValue;
-                }
-                return sorted;
+                merged[i++] = b[bIndex++];
             }
         }
-        return sorted;
+        //Now either a or b has been completely copied into merged
+        //However, we may still need to copy the remaining numbers from the other (yet to be completely processed) array into merged also
+        //This is a straight copy as they are already sorted and all guaranteed to be bigger than anything in merged so far
+        while (aIndex<a.length) {
+            merged[i++] = a[aIndex++];
+        }
+        while (bIndex<b.length) {
+            merged[i++] = b[bIndex++];
+        }
+        return merged;
     }
 }

@@ -33,4 +33,19 @@ public class MergeSortTest {
         int[] sorted = {1,1,1,1,1,2,2,2,2,2};
         assertThat(MergeSort.mergeSort(unsorted)).isEqualTo(sorted);
     }
+
+    @Test
+    public void merge1() {
+        assertThat(MergeSort.merge(new int[] {1}, new int[] {2})).isEqualTo(new int[] {1,2});
+    }
+
+    @Test
+    public void merge2() {
+        assertThat(MergeSort.merge(new int[] {1,3}, new int[] {2,4})).isEqualTo(new int[] {1,2,3,4});
+    }
+
+    @Test
+    public void merge3() {
+        assertThat(MergeSort.merge(new int[] {1,1}, new int[] {2,2})).isEqualTo(new int[] {1,1,2,2});
+    }
 }
