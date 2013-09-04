@@ -40,12 +40,10 @@ public class MergeSort {
                     sorted[i++] = bSorted[bIndex];
                 }
             }
-            if (aIndex>=a.length) {
-                    for (; bIndex<bSorted.length; bIndex++) {
-                        sorted[i++] = bSorted[bIndex];
-                    }
+            if (bIndex>=b.length) {
+                for (; aIndex<bSorted.length; aIndex++) {
+                    sorted[i++] = aSorted[aIndex];
                 }
-
             }
             i++;
         }
