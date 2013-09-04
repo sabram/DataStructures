@@ -3,18 +3,14 @@ package com.ahaunabram.datastructures;
 import java.util.Arrays;
 
 public class MergeSort {
-    public static int[] mergeSort(int[] unsorted) {
+    public static int[] mergeSort(final int[] unsorted) {
 
         int length = unsorted.length;
         if (length == 1) {
             return unsorted;
         }
-        int mid;
-        if (length % 2 == 0) {
-            mid = length/2;
-        } else {
-            mid = (length+1)/2;
-        }
+        int mid = length/2;
+        
         int[] a = Arrays.copyOfRange(unsorted, 0, mid);
         int[] b = Arrays.copyOfRange(unsorted, mid, length);
         int[] aSorted = mergeSort(a);
@@ -31,21 +27,24 @@ public class MergeSort {
                 sorted[i] = bSorted[bIndex];
                 bIndex++;
             } else {
-                sorted[i++] = aSorted[aIndex];
-                sorted[i] = bSorted[bIndex];
-               bIndex++;
-            }
-            if (aIndex>=a.length) {
-                for (; bIndex<bSorted.length; bIndex++) {
-                    sorted[i++] = bSorted[bIndex];
-                }
-            }
-            if (bIndex>=b.length) {
-                for (; aIndex<bSorted.length; aIndex++) {
-                    sorted[i++] = aSorted[aIndex];
-                }
+                sorted[i++] = aSorted[aIndex++];
+                sorted[i] = bSorted[bIndex++];
             }
             i++;
+            if (aIndex>=a.length) {
+                for (; bIndex<bSorted.length; bIndex++) {
+                    int bValue = bSorted[bIndex];
+                    sorted[i++] = bValue;
+                }
+                return sorted;
+            }
+            if (bIndex>=b.length) {
+                for (; aIndex<aSorted.length; aIndex++) {
+                    int aValue = aSorted[aIndex];
+                    sorted[i++] = aValue;
+                }
+                return sorted;
+            }
         }
         return sorted;
     }
