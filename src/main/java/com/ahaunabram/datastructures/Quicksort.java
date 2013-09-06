@@ -21,7 +21,7 @@ public class Quicksort {
             j++;
         }
 
-        //recuraively sort lower and upper
+        //recuraively sort lower and upper.
         int[] lower = {};
         if (i>1) {
             lower = Arrays.copyOfRange(input, 1, i);
