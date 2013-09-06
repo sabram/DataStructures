@@ -19,11 +19,13 @@ public class MergeSort {
         int aIndex = 0;
         int bIndex = 0;
         while (aIndex<a.length && bIndex<b.length) {
+            int smaller;
             if (a[aIndex] <= b[bIndex]) {
-                merged[i++] = a[aIndex++];
-            } else if (a[aIndex] > b[bIndex]) {
-                merged[i++] = b[bIndex++];
+                smaller = a[aIndex++];
+            } else {
+                smaller = b[bIndex++];
             }
+            merged[i++] = smaller;
         }
         //Now either a or b has been completely copied into merged
         //However, we may still need to copy the remaining numbers from the other (yet to be completely processed) array into merged also
