@@ -20,7 +20,8 @@ public class Quicksort {
             }
             j++;
         }
-        //swap(input, 0, i);
+
+        //recuraively sort lower and upper
         int[] lower = {};
         if (i>1) {
             lower = Arrays.copyOfRange(input, 1, i);
@@ -31,6 +32,7 @@ public class Quicksort {
             upper = Arrays.copyOfRange(input, i, input.length);
             upper = pivot(upper);
         }
+
         return merge(lower, pivot, upper);
     }
 
