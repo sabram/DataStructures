@@ -21,6 +21,13 @@ public class QuickSortTest {
     }
 
     @Test
+    public void quicksort_handles_single_element_list() {
+        int[] unsorted = {1};
+        int[] sorted = {1};
+        assertThat(Quicksort.quicksort(unsorted)).isEqualTo(sorted);
+    }
+
+    @Test
     public void quicksort_sorts_simple_unsorted_list() {
         int[] unsorted = {5,2};
         int[] sorted = {2,5};
