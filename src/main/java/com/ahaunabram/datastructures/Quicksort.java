@@ -8,7 +8,7 @@ public class Quicksort {
     }
 
     private static int[] pivot(int[] input) {
-        if (input.length == 1) return input;
+        if (input.length <= 1) return input;
         int pivot = selectPivot(input);
         int i=1;
         int j=1;
