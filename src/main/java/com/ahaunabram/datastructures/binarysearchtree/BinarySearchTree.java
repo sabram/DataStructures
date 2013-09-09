@@ -52,4 +52,8 @@ public class BinarySearchTree {
         }
         return list;
     }
+
+    public Node predecessor(Integer i) {
+        return null;
+    }
 }

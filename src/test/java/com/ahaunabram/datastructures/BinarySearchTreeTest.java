@@ -8,6 +8,7 @@ import org.junit.Test;
 import java.util.List;
 
 import static org.fest.assertions.Assertions.assertThat;
+import static org.fest.assertions.Fail.fail;
 import static org.junit.Assert.assertTrue;
 
 public class BinarySearchTreeTest {
@@ -41,5 +42,15 @@ public class BinarySearchTreeTest {
         List<Integer> inOrder = bst.inOrder();
         List<Integer> expected = Lists.newArrayList(1, 2, 3, 4, 5, 6, 7, 8);
         assertThat(inOrder).isEqualTo(expected);
+    }
+
+    @Test
+    public void predecessor() {
+        fail();
+    }
+
+    @Test
+    public void delete() {
+        fail();
     }
 }
