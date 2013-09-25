@@ -9,7 +9,6 @@ import java.util.List;
 
 import static org.fest.assertions.Assertions.assertThat;
 import static org.fest.assertions.Fail.fail;
-import static org.junit.Assert.assertTrue;
 
 public class BinarySearchTreeTest {
 
@@ -36,7 +35,6 @@ public class BinarySearchTreeTest {
 
     @Test
     public void inOrder() {
-        assertTrue(true);
         BinarySearchTree bst = new BinarySearchTree();
         bst.add(8,1,7,6,4,2,5,3);
         List<Integer> inOrder = bst.inOrder();
@@ -53,4 +51,45 @@ public class BinarySearchTreeTest {
     public void delete() {
         fail();
     }
+
+//    @Test
+//    public void select() {
+//        BinarySearchTree bst = new BinarySearchTree();
+//        bst.add(1,4,2,3);
+//        for (int i=1; i<=4; i++) {
+//            Node node = bst.select(i);
+//            assertThat(node.getValue()).isEqualTo(i);
+//        }
+//    }
+//
+//    @Test
+//    public void select2() {
+//        BinarySearchTree bst = new BinarySearchTree();
+//        bst.add(2,8,4,6);
+//        for (int i=1; i<=4; i++) {
+//            Node node = bst.select(i);
+//            assertThat(node.getValue()).isEqualTo(i*2);
+//        }
+//    }
+//
+//    @Test
+//    public void select3() {
+//        BinarySearchTree bst = new BinarySearchTree();
+//        bst.add(8,1,7,6,4,2,5,3);
+//        for (int i=1; i<=8; i++) {
+//            Node node = bst.select(i);
+//            assertThat(node.getValue()).isEqualTo(i);
+//        }
+//    }
+//
+//    @Test
+//    public void rank() {
+//        BinarySearchTree bst = new BinarySearchTree();
+//        bst.add(1,4,2,3);
+//        int expectedRank = 4;
+//        for (int i=1; i<=4; i++) {
+//            Node node = bst.rank(i);
+//            assertThat(node.getValue()).isEqualTo(expectedRank--);
+//        }
+//    }
 }
