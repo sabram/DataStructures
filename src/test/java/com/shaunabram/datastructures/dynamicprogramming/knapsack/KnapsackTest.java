@@ -1,4 +1,4 @@
-package com.shaunabram.datastructures.knapsack;
+package com.shaunabram.datastructures.dynamicprogramming.knapsack;
 
 import com.google.common.collect.Lists;
 import org.junit.Test;
