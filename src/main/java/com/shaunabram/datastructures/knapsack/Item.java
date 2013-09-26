@@ -1,4 +1,4 @@
-package com.ahaunabram.datastructures.knapsack;
+package com.shaunabram.datastructures.knapsack;
 
 public class Item {
     public Item(int value, int weight) {

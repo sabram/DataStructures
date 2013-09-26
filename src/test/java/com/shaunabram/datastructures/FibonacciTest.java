@@ -1,4 +1,4 @@
-package com.ahaunabram.datastructures;
+package com.shaunabram.datastructures;
 
 import com.google.common.collect.Lists;
 import org.junit.Before;

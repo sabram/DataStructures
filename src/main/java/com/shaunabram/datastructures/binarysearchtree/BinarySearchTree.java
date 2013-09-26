@@ -1,4 +1,4 @@
-package com.ahaunabram.datastructures.binarysearchtree;
+package com.shaunabram.datastructures.binarysearchtree;
 
 import java.util.ArrayList;
 import java.util.List;

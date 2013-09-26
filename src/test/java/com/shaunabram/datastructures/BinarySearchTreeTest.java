@@ -1,7 +1,7 @@
-package com.ahaunabram.datastructures;
+package com.shaunabram.datastructures;
 
-import com.ahaunabram.datastructures.binarysearchtree.BinarySearchTree;
-import com.ahaunabram.datastructures.binarysearchtree.Node;
+import com.shaunabram.datastructures.binarysearchtree.BinarySearchTree;
+import com.shaunabram.datastructures.binarysearchtree.Node;
 import com.google.common.collect.Lists;
 import org.junit.Test;
 

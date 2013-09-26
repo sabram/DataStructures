@@ -1,4 +1,4 @@
-package com.ahaunabram.datastructures.binarysearchtree;
+package com.shaunabram.datastructures.binarysearchtree;
 
 public class Node {
     Integer value;

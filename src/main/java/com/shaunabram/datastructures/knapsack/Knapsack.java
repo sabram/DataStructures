@@ -1,4 +1,4 @@
-package com.ahaunabram.datastructures.knapsack;
+package com.shaunabram.datastructures.knapsack;
 
 import java.util.List;
 

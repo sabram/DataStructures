@@ -1,4 +1,4 @@
-package com.ahaunabram.datastructures.strings;
+package com.shaunabram.datastructures.strings;
 
 import org.junit.Test;
 

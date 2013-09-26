@@ -1,4 +1,4 @@
-package com.ahaunabram.datastructures;
+package com.shaunabram.datastructures;
 
 public class Fibonacci {
 
