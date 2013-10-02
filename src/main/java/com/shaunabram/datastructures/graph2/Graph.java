@@ -1,8 +1,7 @@
 package com.shaunabram.datastructures.graph2;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import static com.shaunabram.datastructures.graph2.Node.Color.*;
 
 public class Graph {
 
@@ -25,5 +24,24 @@ public class Graph {
      */
     public boolean isConnected() {
         return false;
+    }
+
+    public List<Node> bfs(Node source) {
+        List<Node> bfs = new ArrayList<>();
+        Queue<Node> q = new LinkedList<>();
+        q.add(source);
+        while(!q.isEmpty()) {
+            Node n = q.remove();
+            if (n.color == WHITE) {
+                List<Node> adjacentNodes = graph.get(n);
+                for (Node adjacentNode : adjacentNodes) {
+                    q.add(adjacentNode);
+                    bfs.add(adjacentNode);
+                    adjacentNode.setColor(GREY);
+                }
+                n.setColor(BLACK);
+            }
+        }
+        return bfs;
     }
 }
