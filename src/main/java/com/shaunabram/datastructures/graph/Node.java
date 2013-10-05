@@ -5,6 +5,8 @@ public class Node {
     //stored as an Object for convenience; could use generic Type
     private final Object value;
     private boolean explored = false;
+    enum Color {WHITE, GREY, BLACK};
+    Color color = Color.WHITE;
 
     public Node(Object v) {
         this.value = v;
@@ -20,6 +22,14 @@ public class Node {
 
     public Object getValue() {
         return value;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
     }
 
     @Override

@@ -5,47 +5,49 @@ import com.google.common.collect.Maps;
 
 import java.util.*;
 
+import static com.shaunabram.datastructures.graph.Node.Color.*;
+
 public class Graph implements IGraph {
     /**
      * Our graph is stored as an adjacency list - A collection of all the Nodes where
      * each node is associated with a list of all its edges
      */
-    Map<Node, List<Node>> nodes;
+    Map<Node, List<Node>> adjacencyList;
 
     public Graph() {
-        nodes = new HashMap<>();
+        adjacencyList = new HashMap<>();
     }
 
     @Override
     public void addNode(Node v) {
-        nodes.put(v, new ArrayList<Node>());
+        if (adjacencyList.containsKey(v)) throw new RuntimeException("Node already exists in graph");
+        adjacencyList.put(v, new ArrayList<Node>());
     }
 
     @Override
+    /**
+     * Connect two nodes with an edge
+     */
     public void addEdge(Node v1, Node v2) {
-        List<Node> neighboursOfv1 = nodes.get(v1);
+        List<Node> neighboursOfv1 = adjacencyList.get(v1);
         if (neighboursOfv1 == null) throw new RuntimeException("Node " + v1 + " doesn't exist");
-        neighboursOfv1.add(v2);
+        if (!neighboursOfv1.contains(v2)) neighboursOfv1.add(v2);
 
-        List<Node> neighboursOfv2 = nodes.get(v2);
+        List<Node> neighboursOfv2 = adjacencyList.get(v2);
         if (neighboursOfv2 == null) throw new RuntimeException("Node " + v2 + " doesn't exist");
-        neighboursOfv2.add(v1);
+        if (!neighboursOfv2.contains(v1)) neighboursOfv2.add(v1);
     }
 
     @Override
+    /**
+     * Determines if 2 nodes have a direct connection
+     */
     public boolean hasEdge(Node v1, Node v2) {
         //get linked list for v1
-        List<Node> neighbours = nodes.get(v1);
+        List<Node> neighbours = adjacencyList.get(v1);
         if (neighbours == null) return false;
-        //iterate though linked list
-        int i = neighbours.indexOf(v2);
-        //return if v2 found in neighbours
-        return i != -1;
-    }
-
-    @Override
-    public boolean hasPath(Node v1, Node v2) {
-        throw new RuntimeException("Not yet implemented");
+        //return true if v2 found in n1's neighbours
+        return neighbours.contains(v2);
     }
 
     @Override
@@ -61,7 +63,7 @@ public class Graph implements IGraph {
          * Each Integer represents the distance from source to each Node
          */
         Map<Node, Integer> distances = Maps.newHashMap();
-        for (Node node : nodes.keySet()) {
+        for (Node node : adjacencyList.keySet()) {
             distances.put(node, null);
         }
         distances.put(source, 0);
@@ -76,7 +78,7 @@ public class Graph implements IGraph {
 
             //here, can do 'process v early'
 
-            List<Node> neighouringNodes = nodes.get(v);
+            List<Node> neighouringNodes = adjacencyList.get(v);
             for (Node neighouringNode : neighouringNodes) {
                 if (!neighouringNode.isExplored()) {
                     neighouringNode.setExplored(true);
@@ -133,5 +135,26 @@ public class Graph implements IGraph {
             System.out.print(node.getValue());
         }
         System.out.print("\n");
+    }
+
+    public List<Node> bfs(Node s) {
+        List<Node> bfs = new ArrayList<>();
+        Queue<Node> q = new ArrayDeque<>();
+        s.setColor(GREY);
+        q.add(s);
+        bfs.add(s);
+        while(!q.isEmpty()) {
+            Node node = q.poll();
+            List<Node> adjacentNodes = adjacencyList.get(node);
+            for (Node a : adjacentNodes) {
+                if (a.getColor() == WHITE) {
+                    a.setColor(GREY);
+                    q.offer(a);
+                    bfs.add(a);
+                }
+            }
+            node.setColor(BLACK);
+        }
+        return bfs;
     }
 }

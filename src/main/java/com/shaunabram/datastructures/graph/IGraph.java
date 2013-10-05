@@ -10,7 +10,10 @@ public interface IGraph {
 
     public boolean hasEdge(Node v1, Node v2);
 
-    public boolean hasPath(Node v1, Node v2);
+    /**
+     * Returns a list of nodes representing (one possible version of) a breadth first search tree.
+     */
+    public List<Node> bfs(Node s);
 
     /**
      * Returns the shortest path between source and destination.
@@ -18,7 +21,5 @@ public interface IGraph {
      * specifically the first encountered in the BFS.
      */
     public List<Node> getShortestPath(Node source, Node destination);
-
-    public String toString();
 
 }

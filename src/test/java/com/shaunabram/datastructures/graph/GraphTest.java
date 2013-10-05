@@ -81,6 +81,14 @@ public class GraphTest {
     }
 
     @Test
+    /**
+     * /--C--\
+     * |      \
+     * A--B--D \
+     *    |     \
+     *    |--E--F
+     *    Shorttest path from A to F is ACF
+     */
     public void getShortestPaths_returns_shortest_path() {
         Node nodeC = new Node("C");
         Node nodeD = new Node("D");
@@ -102,5 +110,66 @@ public class GraphTest {
         List<Node> shortestPath = Lists.newArrayList(nodeA, nodeC, nodeF);
         List<Node> returnedPath = graph.getShortestPath(nodeA, nodeF);
         assertThat(returnedPath).isEqualTo(shortestPath);
+    }
+
+    @Test
+    /**
+     * A--B
+     */
+    public void bfs2_for_simple_addEdgeed_graph() {
+        Node a = new Node("A");
+        Node b = new Node("B");
+        Graph graph = new Graph();
+        graph.addNode(a);
+        graph.addNode(b);
+        graph.addEdge(a, b);
+        assertThat(graph.bfs(a)).containsExactly(a, b);
+    }
+
+    @Test
+    /**
+     * A--B--C
+     *    |
+     *    |--D
+     */
+    public void bfs2_for_4Node_addEdgeed_graph() {
+        Node a = new Node("A");
+        Node b = new Node("B");
+        Node c = new Node("C");
+        Node d = new Node("D");
+        Graph graph = new Graph();
+        graph.addNode(a);
+        graph.addNode(b);
+        graph.addNode(c);
+        graph.addNode(d);
+        graph.addEdge(a, b);
+        graph.addEdge(b, c);
+        graph.addEdge(b, d);
+        assertThat(graph.bfs(a)).containsExactly(a, b, c, d);
+    }
+
+    @Test
+    /**
+     * A--B--C
+     * |
+     * D--E
+     */
+    public void bfs2_for_5Node_addEdgeed_graph() {
+        Node a = new Node("A");
+        Node b = new Node("B");
+        Node c = new Node("C");
+        Node d = new Node("D");
+        Node e = new Node("E");
+        Graph graph = new Graph();
+        graph.addNode(a);
+        graph.addNode(b);
+        graph.addNode(c);
+        graph.addNode(d);
+        graph.addNode(e);
+        graph.addEdge(a, b);
+        graph.addEdge(b, c);
+        graph.addEdge(a, d);
+        graph.addEdge(d, e);
+        assertThat(graph.bfs(a)).containsExactly(a, b, d, c, e);
     }
 }
