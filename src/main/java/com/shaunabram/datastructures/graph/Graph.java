@@ -157,4 +157,17 @@ public class Graph implements IGraph {
         }
         return bfs;
     }
+
+    /**
+     * Determines if this graph is connected.
+     * Utilises a BFS, starting at an arbitrary node, to determine
+     * if all nodes can be found.
+     */
+    public boolean isConnected() {
+        Set<Node> nodes = adjacencyList.keySet();
+        Iterator<Node> iterator = nodes.iterator();
+        Node s = iterator.next();
+        List<Node> bfs = bfs(s);
+        return bfs.size() == nodes.size();
+    }
 }

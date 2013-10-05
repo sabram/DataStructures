@@ -22,4 +22,9 @@ public interface IGraph {
      */
     public List<Node> getShortestPath(Node source, Node destination);
 
+    /**
+     * Determines if this graph is connected.
+     */
+    public boolean isConnected();
+
 }

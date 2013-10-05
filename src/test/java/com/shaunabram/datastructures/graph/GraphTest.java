@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.fest.assertions.Assertions.assertThat;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class GraphTest {
     Node nodeA = new Node("A");
@@ -171,5 +173,78 @@ public class GraphTest {
         graph.addEdge(a, d);
         graph.addEdge(d, e);
         assertThat(graph.bfs(a)).containsExactly(a, b, d, c, e);
+    }
+
+    @Test
+    /**
+     * A--B
+     */
+    public void isConnected_returns_true_for_simple_connected_graph() {
+        Node a = new Node("A");
+        Node b = new Node("B");
+        Graph graph = new Graph();
+        graph.addNode(a);
+        graph.addNode(b);
+        graph.addEdge(a, b);
+        assertTrue(graph.isConnected());
+    }
+
+    @Test
+    /**
+     * A--B--C
+     *    |
+     *    |--D
+     */
+    public void isConnected_returns_true_for_4Node_connected_graph() {
+        Node a = new Node("A");
+        Node b = new Node("B");
+        Node c = new Node("C");
+        Node d = new Node("D");
+        Graph graph = new Graph();
+        graph.addNode(a);
+        graph.addNode(b);
+        graph.addNode(c);
+        graph.addNode(d);
+        graph.addEdge(a, b);
+        graph.addEdge(b, c);
+        graph.addEdge(b, d);
+        assertTrue(graph.isConnected());
+    }
+
+    @Test
+    /**
+     * A  B
+     */
+    public void isConnected_returns_false_for_2Node_unconnected_graph() {
+        Node a = new Node("A");
+        Node b = new Node("B");
+        Graph graph = new Graph();
+        graph.addNode(a);
+        graph.addNode(b);
+        assertFalse(graph.isConnected());
+    }
+
+    @Test
+    /**
+     * A--B--C
+     *
+     * D--E
+     */
+    public void isConnected_returns_false_for_5Node_2_component_unconnected_graph() {
+        Node a = new Node("A");
+        Node b = new Node("B");
+        Node c = new Node("C");
+        Node d = new Node("D");
+        Node e = new Node("E");
+        Graph graph = new Graph();
+        graph.addNode(a);
+        graph.addNode(b);
+        graph.addNode(c);
+        graph.addNode(d);
+        graph.addNode(e);
+        graph.addEdge(a, b);
+        graph.addEdge(b, c);
+        graph.addEdge(d, e);
+        assertFalse(graph.isConnected());
     }
 }
