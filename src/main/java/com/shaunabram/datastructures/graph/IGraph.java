@@ -2,6 +2,7 @@ package com.shaunabram.datastructures.graph;
 
 import java.util.List;
 
+//undirected and unweighted (or all weights are equal)
 public interface IGraph {
 
     public void addNode(Node v);
@@ -12,6 +13,7 @@ public interface IGraph {
 
     /**
      * Returns a list of nodes representing (one possible version of) a breadth first search tree.
+     * NB This based on number of nodes only.
      */
     public List<Node> bfs(Node s);
 
