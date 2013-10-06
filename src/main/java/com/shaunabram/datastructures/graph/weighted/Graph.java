@@ -5,16 +5,13 @@ import java.util.*;
 //directed, weighted graph
 public class Graph {
 
-//    List<Node> nodes;
-//    List<Edge> edges;
     Map<Node, List<Edge>> adjacencyList = new HashMap<>();
-//
+
     public Graph(List<Node> nodes) {
         for (Node node : nodes) {
             if (adjacencyList.get(node)!=null) throw new RuntimeException("Node already exists: " + node);
             adjacencyList.put(node, new ArrayList<Edge>());
         }
-//        this.edges = edges;
     }
 
     /**
@@ -25,12 +22,11 @@ public class Graph {
      * src = edge.getSource
      * destination = edge.getDestination()
      */
-    public void addEdge(Node node, Edge edge) {
-        if (!node.equals(edge.getSource())) throw new RuntimeException("source of Edge " + edge + " must equal source Node " + node);
-
-        List<Edge> neighboursOfNode = adjacencyList.get(node);
-        if (neighboursOfNode == null) throw new RuntimeException("Node " + node + " doesn't exist");
-        if (!neighboursOfNode.contains(edge)) neighboursOfNode.add(edge);
+    public void addEdge(Edge edge) {
+        Node source = edge.getSource();
+        List<Edge> neighboursOfSource = adjacencyList.get(source);
+        if (neighboursOfSource == null) throw new RuntimeException("Node " + source + " doesn't exist");
+        if (!neighboursOfSource.contains(edge)) neighboursOfSource.add(edge);
     }
 
 
@@ -39,7 +35,6 @@ public class Graph {
         Set<Node> unvisited = new HashSet<>();
         unvisited.addAll(adjacencyList.keySet());
         Map<Node, Integer> distances = initDistances(unvisited);//distance from source to key
-//        Map<Node, List<Node>> path = new HashMap<>();//path from source to key
 
         distances.put(source, 0);
 

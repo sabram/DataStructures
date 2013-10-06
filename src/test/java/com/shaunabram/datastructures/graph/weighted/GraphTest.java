@@ -35,11 +35,11 @@ public class GraphTest {
         Edge cd = new Edge(c, d, 3);
 
         Graph graph = new Graph(nodes);
-        graph.addEdge(a, ab);
-        graph.addEdge(a, ac);
-        graph.addEdge(b, bc);
-        graph.addEdge(b, bd);
-        graph.addEdge(c, cd);
+        graph.addEdge(ab);
+        graph.addEdge(ac);
+        graph.addEdge(bc);
+        graph.addEdge(bd);
+        graph.addEdge(cd);
         List<Node> shortestPath = graph.shortestPath(a, d);
         assertThat(shortestPath).containsExactly(a, b, c, d);
         int distance = ab.getWeight() + bc.getWeight() + cd.getWeight();
@@ -77,11 +77,11 @@ public class GraphTest {
 
         Graph graph = new Graph(nodes);
 
-        graph.addEdge(a, ac);
-        graph.addEdge(c, ce);
-        graph.addEdge(e, ed);
-        graph.addEdge(b, bd);
-        graph.addEdge(a, ab);
+        graph.addEdge(ac);
+        graph.addEdge(ce);
+        graph.addEdge(ed);
+        graph.addEdge(bd);
+        graph.addEdge(ab);
         List<Node> shortestPath = graph.shortestPath(a, d);
         assertThat(shortestPath).containsExactly(a, c, e, d);
         int distance = ac.getWeight() + ce.getWeight() + ed.getWeight();
