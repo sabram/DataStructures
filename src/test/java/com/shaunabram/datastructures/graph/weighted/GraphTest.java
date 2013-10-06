@@ -1,11 +1,17 @@
 package com.shaunabram.datastructures.graph.weighted;
 
 import com.google.common.collect.Lists;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
+
 import java.util.List;
 import static org.fest.assertions.Assertions.assertThat;
 
 public class GraphTest {
+
+    @Rule
+    public ExpectedException expectedEx = ExpectedException.none();
 
     @Test
     /**
@@ -86,6 +92,36 @@ public class GraphTest {
         assertThat(shortestPath).containsExactly(a, c, e, d);
         int distance = ac.getWeight() + ce.getWeight() + ed.getWeight();
         assertThat(distance).isEqualTo(6);
-
     }
+
+    @Test
+    /**
+     * ! represents down arrow.
+     *
+     *     4
+     *  A----->B
+     *
+     *      2
+     *  C----->D
+     * Path from A to D doesn't exist.
+     */
+    public void shortestPath_handles_unconnected() {
+        Node a = new Node(1, "A");
+        Node b = new Node(1, "B");
+        Node c = new Node(1, "C");
+        Node d = new Node(1, "D");
+        List<Node> nodes = Lists.newArrayList(a, b, c, d);
+
+        Edge ab = new Edge(a, b, 4);
+        Edge cd = new Edge(c, d, 2);
+
+        Graph graph = new Graph(nodes);
+
+        graph.addEdge(ab);
+        graph.addEdge(cd);
+        expectedEx.expect(RuntimeException.class);
+        expectedEx.expectMessage("Unable to find a path!");
+        graph.shortestPath(a, d);
+    }
+
 }

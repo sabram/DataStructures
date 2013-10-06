@@ -42,10 +42,9 @@ public class Graph {
             Node next = getSmallest(unvisited, distances);
             unvisited.remove(next);
 
-            if (distances.get(next) == null) {
-                break;
-                // I don't fully understand this!
-                // means all remaining vertices are inaccessible from source?
+            Integer d = distances.get(next);
+            if (d == null || d == Integer.MAX_VALUE) {
+                break;//all remaining vertices are inaccessible from source?
             }
 
             List<Edge> outgoingEdges = adjacencyList.get(next);
@@ -63,7 +62,11 @@ public class Graph {
             }
             visited.add(next);
         }
-        return getPath(destination);
+        List<Node> path = getPath(destination);
+        if (!path.get(0).equals(source) || !path.get(path.size()-1).equals(destination)) {
+            throw new RuntimeException("Unable to find a path!");
+        }
+        return path;
     }
 
     public List<Node> getPath(Node destination) {
