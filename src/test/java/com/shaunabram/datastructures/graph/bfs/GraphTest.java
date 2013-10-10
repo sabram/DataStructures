@@ -1,9 +1,7 @@
-package com.shaunabram.datastructures.graph2;
+package com.shaunabram.datastructures.graph.bfs;
 
 import org.junit.Test;
-
 import java.util.List;
-
 import static org.fest.assertions.Assertions.assertThat;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;

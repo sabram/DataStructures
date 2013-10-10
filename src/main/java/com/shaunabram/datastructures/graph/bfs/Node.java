@@ -1,4 +1,4 @@
-package com.shaunabram.datastructures.graph2;
+package com.shaunabram.datastructures.graph.bfs;
 
 import java.util.ArrayList;
 import java.util.List;

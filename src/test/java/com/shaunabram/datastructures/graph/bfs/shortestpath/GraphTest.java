@@ -1,4 +1,4 @@
-package com.shaunabram.datastructures.graph;
+package com.shaunabram.datastructures.graph.bfs.shortestpath;
 import com.google.common.collect.Lists;
 import org.junit.Test;
 

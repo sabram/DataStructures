@@ -1,4 +1,4 @@
-package com.shaunabram.datastructures.graph;
+package com.shaunabram.datastructures.graph.bfs.shortestpath;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
@@ -61,9 +61,6 @@ public class Graph implements IGraph {
          * Each Integer represents the distance from source to each Node
          */
         Map<Node, Integer> distances = Maps.newHashMap();
-        for (Node node : nodes.keySet()) {
-            distances.put(node, null);
-        }
         distances.put(source, 0);
         //end initialization
 

@@ -1,7 +1,7 @@
-package com.shaunabram.datastructures.graph2;
+package com.shaunabram.datastructures.graph.bfs;
 
 import java.util.*;
-import static com.shaunabram.datastructures.graph2.Node.Color.*;
+import static com.shaunabram.datastructures.graph.bfs.Node.Color.*;
 
 public class Graph {
 
