@@ -1,12 +1,11 @@
 package com.shaunabram.datastructures.binarytree;
 
 public class Node {
-    public enum Color {UNDISCOVERED, DISCOVERED, PROCESSED}
 
     private final String value;
     private final Node left;
     private final Node right;
-    public Color color = Color.UNDISCOVERED;
+    public Integer height = null;
 
     public Node(String value) {
         this.value = value;
@@ -53,7 +52,7 @@ public class Node {
     public String toString() {
         return "Node{" +
                 "value='" + value + '\'' +
-                ", color=" + color +
+                ", height=" + height +
                 '}';
     }
 }
