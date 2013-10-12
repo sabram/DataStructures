@@ -1,4 +1,4 @@
-package com.shaunabram.datastructures;
+package com.shaunabram.datastructures.binarysearchtree;
 
 import com.shaunabram.datastructures.binarysearchtree.BinarySearchTree;
 import com.shaunabram.datastructures.binarysearchtree.Node;
@@ -42,15 +42,15 @@ public class BinarySearchTreeTest {
         assertThat(inOrder).isEqualTo(expected);
     }
 
-    @Test
-    public void predecessor() {
-        fail();
-    }
-
-    @Test
-    public void delete() {
-        fail();
-    }
+//    @Test
+//    public void predecessor() {
+//        fail();
+//    }
+//
+//    @Test
+//    public void delete() {
+//        fail();
+//    }
 
 //    @Test
 //    public void select() {
