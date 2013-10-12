@@ -85,31 +85,29 @@ public class BinaryTreeTest {
     @Test
     /**
      *           a
-     *          / \
-     *        b    c
-     *       / \    \
-     *     d    e    f
-     *    /      \    \
-     *   g        z    h
-     *  /
-     * i
+     *         /   \
+     *        b     c
+     *       / \   / \
+     *     d    e f   g
+     *    / \
+     *   h   i
      *
      */
     public void isBalanced_true_for_complex_balanced() {
+        Node h = new Node("h");
         Node i = new Node("i");
-        Node g = new Node("g", i, null);
-        Node d = new Node("d", g, null);
-        Node z = new Node("z");
-        Node e = new Node("e", null, z);
+        Node d = new Node("d", h, i);
+
+        Node e = new Node("e");
         Node b = new Node("b", d, e);
 
-        Node h = new Node("h");
-        Node f = new Node("f", h, null);
-        Node c = new Node("c", f, null);
+        Node f = new Node("f");
+        Node g = new Node("g");
+        Node c = new Node("c", f, g);
 
-        Node root = new Node("a", b, c);
+        Node a = new Node("a", b, c);
 
-        assertTrue(isBalanced(root));
+        assertTrue(isBalanced(a));
     }
 
 }
