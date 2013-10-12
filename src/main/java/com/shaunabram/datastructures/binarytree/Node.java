@@ -5,7 +5,7 @@ public class Node {
     private final String value;
     private final Node left;
     private final Node right;
-    public Integer height = null;
+    private Integer height = null;
 
     public Node(String value) {
         this.value = value;
@@ -29,6 +29,14 @@ public class Node {
 
     public Node getRight() {
         return right;
+    }
+
+    public Integer getHeight() {
+        return height;
+    }
+
+    public void setHeight(Integer height) {
+        this.height = height;
     }
 
     @Override
