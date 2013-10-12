@@ -1,4 +1,4 @@
-package com.shaunabram.datastructures.graph;
+package com.shaunabram.datastructures.graph.bfs.shortestpath;
 
 import java.util.List;
 
