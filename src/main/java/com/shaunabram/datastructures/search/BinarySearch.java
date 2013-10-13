@@ -1,4 +1,4 @@
-package com.shaunabram.datastructures;
+package com.shaunabram.datastructures.search;
 
 import java.util.Arrays;
 
