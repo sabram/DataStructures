@@ -1,12 +1,10 @@
-package com.shaunabram.datastructures.graph;
+package com.shaunabram.datastructures.graph.bfs.shortestpath;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
 import java.util.*;
-
-import static com.shaunabram.datastructures.graph.Node.Color.*;
-
+import static com.shaunabram.datastructures.graph.bfs.shortestpath.Node.Color.*;
 public class Graph implements IGraph {
     /**
      * Our graph is stored as an adjacency list - A collection of all the Nodes where
