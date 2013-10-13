@@ -8,6 +8,11 @@ import static org.junit.Assert.assertTrue;
 public class BinaryTreeTest {
 
     @Test
+    public void isBalanced_true_for_null_node() {//empty tree
+        assertTrue(isBalanced(null));
+    }
+
+    @Test
     public void isBalanced_true_for_single_node() {
         Node root = new Node("A");
         assertTrue(isBalanced(root));
