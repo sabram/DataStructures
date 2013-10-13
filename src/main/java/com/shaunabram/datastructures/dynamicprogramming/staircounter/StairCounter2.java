@@ -1,4 +1,4 @@
-package com.shaunabram.datastructures.staircounter;
+package com.shaunabram.datastructures.dynamicprogramming.staircounter;
 
 /**
  * Recursive solution using caching (Dynamic programming)

@@ -1,9 +1,6 @@
 package com.shaunabram.datastructures.dynamicprogramming.staircounter;
 
 import com.google.common.collect.Lists;
-import com.shaunabram.datastructures.staircounter.StairCounter;
-import com.shaunabram.datastructures.staircounter.StairCounter2;
-import com.shaunabram.datastructures.staircounter.StairCounter3;
 import org.junit.Test;
 
 import java.util.List;

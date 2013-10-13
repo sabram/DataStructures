@@ -1,4 +1,4 @@
-package com.shaunabram.datastructures.staircounter;
+package com.shaunabram.datastructures.dynamicprogramming.staircounter;
 
 /**
  * Naive recursive solution

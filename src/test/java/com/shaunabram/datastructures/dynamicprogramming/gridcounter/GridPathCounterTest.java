@@ -1,4 +1,4 @@
-package com.shaunabram.datastructures.dynamicprogramming;
+package com.shaunabram.datastructures.dynamicprogramming.gridcounter;
 
 import com.google.common.collect.Lists;
 import com.shaunabram.datastructures.dynamicprogramming.gridcounter.Coordinate;
