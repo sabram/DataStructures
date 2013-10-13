@@ -1,4 +1,4 @@
-package com.shaunabram.datastructures;
+package com.shaunabram.datastructures.misc;
 
 import java.util.PriorityQueue;
 

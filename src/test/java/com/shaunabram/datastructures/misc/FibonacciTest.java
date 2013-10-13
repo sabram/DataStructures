@@ -1,6 +1,7 @@
-package com.shaunabram.datastructures;
+package com.shaunabram.datastructures.misc;
 
 import com.google.common.collect.Lists;
+import com.shaunabram.datastructures.misc.Fibonacci;
 import org.junit.Before;
 import org.junit.Test;
 

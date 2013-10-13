@@ -1,5 +1,6 @@
-package com.shaunabram.datastructures;
+package com.shaunabram.datastructures.misc;
 
+import com.shaunabram.datastructures.misc.MedianTracker;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
