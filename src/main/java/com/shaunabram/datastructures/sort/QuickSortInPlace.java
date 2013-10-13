@@ -1,4 +1,4 @@
-package com.shaunabram.datastructures;
+package com.shaunabram.datastructures.sort;
 
 public class QuickSortInPlace {
     public static int[] quicksort(int[] input) {

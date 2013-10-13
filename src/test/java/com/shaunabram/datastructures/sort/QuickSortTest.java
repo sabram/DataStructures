@@ -1,5 +1,6 @@
-package com.shaunabram.datastructures;
+package com.shaunabram.datastructures.sort;
 
+import org.fest.assertions.Assertions;
 import org.junit.Test;
 
 import static org.fest.assertions.Assertions.assertThat;
@@ -10,7 +11,7 @@ public class QuickSortTest {
     public void quicksort_handles_empty_list() {
         int[] unsorted = {};
         int[] sorted = {};
-        assertThat(Quicksort.quicksort(unsorted)).isEqualTo(sorted);
+        Assertions.assertThat(Quicksort.quicksort(unsorted)).isEqualTo(sorted);
     }
 
     @Test

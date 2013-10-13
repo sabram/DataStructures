@@ -1,5 +1,6 @@
-package com.shaunabram.datastructures;
+package com.shaunabram.datastructures.sort;
 
+import org.fest.assertions.Assertions;
 import org.junit.Test;
 
 import static org.fest.assertions.Assertions.assertThat;
@@ -10,7 +11,7 @@ public class MergeSortTest {
     public void mergesort_sorts_simple_unsorted_list() {
         int[] unsorted = {5,2};
         int[] sorted = {2,5};
-        assertThat(MergeSort.mergeSort(unsorted)).isEqualTo(sorted);
+        Assertions.assertThat(MergeSort.mergeSort(unsorted)).isEqualTo(sorted);
     }
 
     @Test
