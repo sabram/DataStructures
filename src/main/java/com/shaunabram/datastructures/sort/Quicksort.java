@@ -4,10 +4,6 @@ import java.util.Arrays;
 
 public class Quicksort {
     public static int[] quicksort(int[] input) {
-        return pivot(input);
-    }
-
-    private static int[] pivot(int[] input) {
         if (input == null || input.length <= 1) return input;
         int pivot = selectPivot(input);
         int i=1;
@@ -25,12 +21,12 @@ public class Quicksort {
         int[] lower = {};
         if (i>1) {
             lower = Arrays.copyOfRange(input, 1, i);
-            lower = pivot(lower);
+            lower = quicksort(lower);
         }
         int[] upper = {};
         if ((j-i)>0) {
             upper = Arrays.copyOfRange(input, i, input.length);
-            upper = pivot(upper);
+            upper = quicksort(upper);
         }
 
         return merge(lower, pivot, upper);
