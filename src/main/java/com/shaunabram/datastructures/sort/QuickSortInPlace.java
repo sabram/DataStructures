@@ -7,7 +7,14 @@ public class QuickSortInPlace {
     }
 
     private static int[] pivot(int[] input, int lower, int upper) {
-        if (upper-lower<=1) return input;
+        if (upper-lower<=1) {
+            //debug
+            if ((upper-lower)==1) {
+                System.out.println("as is " + input[lower]);
+            }
+
+            return input;
+        }
         int pivot = selectPivot(input, lower);
         printArray("pivoting array ", input, lower, upper, pivot);
 
@@ -27,12 +34,18 @@ public class QuickSortInPlace {
         //i.e. swap pivot (lower) with last 'less than' number (i-1)
         swap(input, lower, i-1);
 
+        int pivotIdx = i-1;
+
         printArray("pivoted array ", input, lower, upper, pivot);
 
         pivot(input, lower, i-1);
         pivot(input, i+2, input.length);
 
         return input;
+    }
+
+    private static void asIs(int[] input, int lower, int upper) {
+        System.out.println(lower + " " + upper);
     }
 
     private static void printArray(String s, int[] input, int lower, int upper, int pivot) {
