@@ -1,7 +1,5 @@
 package com.shaunabram.datastructures.sort;
 
-import java.util.Arrays;
-
 public class QuickSortInPlace {
     public static int[] quicksort(int[] input) {
         if (input == null || input.length <= 1) return input;
@@ -9,17 +7,8 @@ public class QuickSortInPlace {
     }
 
     private static int[] pivot(int[] input, int lower, int upper) {
-        if (upper-lower<=1) {
-            //debug
-            if ((upper-lower)==1) {
-                System.out.println("as is " + input[lower]);
-            }
-
-            return input;
-        }
+        if (upper-lower<=1) return input;
         int pivot = selectPivot(input, lower);
-        printArray("pivoting array ", input, lower, upper, pivot);
-
 
         int i=lower+1;
         int j=i;
@@ -37,21 +26,11 @@ public class QuickSortInPlace {
         int pivotIdx = i-1;
         swap(input, lower, pivotIdx);
 
-        printArray("pivoted array ", input, lower, upper, pivot);
-        System.out.println("(pivotIdx=" + pivotIdx + " in array " + Arrays.toString(input));
-
+        //recursively sort the array the left and right of the pivot
         pivot(input, lower, pivotIdx);
         pivot(input, pivotIdx+1, input.length);
 
         return input;
-    }
-
-    private static void printArray(String s, int[] input, int lower, int upper, int pivot) {
-        System.out.print(s);
-        for (int x=lower; x<upper; x++ ) {
-            System.out.print(input[x]);
-        }
-        System.out.print(" around " + pivot + "\n");
     }
 
     private static void swap(int[] input, int i, int j) {
