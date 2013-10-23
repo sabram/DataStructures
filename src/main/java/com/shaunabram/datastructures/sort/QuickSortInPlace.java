@@ -1,5 +1,7 @@
 package com.shaunabram.datastructures.sort;
 
+import java.util.Arrays;
+
 public class QuickSortInPlace {
     public static int[] quicksort(int[] input) {
         if (input == null || input.length <= 1) return input;
@@ -31,21 +33,17 @@ public class QuickSortInPlace {
         }
 
         //put pivot in its rightful place
-        //i.e. swap pivot (lower) with last 'less than' number (i-1)
-        swap(input, lower, i-1);
-
+        //i.e. swap pivot last 'less than' number (lower)
         int pivotIdx = i-1;
+        swap(input, lower, pivotIdx);
 
         printArray("pivoted array ", input, lower, upper, pivot);
+        System.out.println("(pivotIdx=" + pivotIdx + " in array " + Arrays.toString(input));
 
-        pivot(input, lower, i-1);
-        pivot(input, i+2, input.length);
+        pivot(input, lower, pivotIdx);
+        pivot(input, pivotIdx+1, input.length);
 
         return input;
-    }
-
-    private static void asIs(int[] input, int lower, int upper) {
-        System.out.println(lower + " " + upper);
     }
 
     private static void printArray(String s, int[] input, int lower, int upper, int pivot) {

@@ -36,6 +36,13 @@ public class QuickSortTest {
     }
 
     @Test
+    public void quicksort_sorts_simpler_unsorted_list() {
+        int[] unsorted = {3,2,5,4};
+        int[] sorted = {2,3,4,5};
+        assertThat(QuickSortInPlace.quicksort(unsorted)).isEqualTo(sorted);
+    }
+
+    @Test
     public void quicksort_sorts_simple_unsorted_list() {
         int[] unsorted = {5,2,4,3,1};
         int[] sorted = {1,2,3,4,5};
