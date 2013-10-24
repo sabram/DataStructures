@@ -1,16 +1,15 @@
 package com.shaunabram.datastructures.bits;
 
-//Work in progress!!
 public class Bits {
 
     public static boolean getBit(int num, int i) {
         int mask = 1 << i;
         int result = num & mask;
-        return result == 1;
+        return result > 0;
     }
 
     public static int setBit(int num, int i) {
-        int mask = 1 >> i;
+        int mask = 1 << i;
         int result = num | mask;
         return result;
     }

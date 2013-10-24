@@ -43,8 +43,8 @@ public class BitsTest {
     @Test
     public void setBit() {
         //1 = 001
-        assertEquals(Bits.setBit(1, 0), 1);
-        assertEquals(Bits.setBit(1, 1), 3);
+        assertEquals(Bits.setBit(1, 0), 0b1);
+        assertEquals(Bits.setBit(1, 1), 0b11);
 
         //2 = 010
         assertEquals(Bits.setBit(2, 0), 3);
@@ -56,5 +56,18 @@ public class BitsTest {
         assertEquals(Bits.setBit(5, 1), 7);
         assertEquals(Bits.setBit(5, 2), 5);
         assertEquals(Bits.setBit(5, 3), 13);
+    }
+
+    @Test
+    //not a test so much as an experiment/workpad
+    public void test() {
+        int i;
+
+        i = 1; //001
+        assertEquals(i << 1, 0b10);
+
+        i = 4; //0100
+        assertEquals(i << 2, 0b10000);
+        assertEquals(i >> 2, 0b1);
     }
 }
