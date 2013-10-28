@@ -1,19 +1,19 @@
-package com.shaunabram.datastructures.binarytree;
+package com.shaunabram.datastructures.tree;
 
-public class Node {
+public class StrNode {
 
     private final String value;
-    private final Node left;
-    private final Node right;
+    private final StrNode left;
+    private final StrNode right;
     private Integer height = null;
 
-    public Node(String value) {
+    public StrNode(String value) {
         this.value = value;
         this.left = null;
         this.right = null;
     }
 
-    public Node(String value, Node left, Node right) {
+    public StrNode(String value, StrNode left, StrNode right) {
         this.value = value;
         this.left = left;
         this.right = right;
@@ -23,11 +23,11 @@ public class Node {
         return value;
     }
 
-    public Node getLeft() {
+    public StrNode getLeft() {
         return left;
     }
 
-    public Node getRight() {
+    public StrNode getRight() {
         return right;
     }
 
@@ -44,7 +44,7 @@ public class Node {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Node node = (Node) o;
+        StrNode node = (StrNode) o;
 
         if (value != null ? !value.equals(node.value) : node.value != null) return false;
 
@@ -58,7 +58,7 @@ public class Node {
 
     @Override
     public String toString() {
-        return "Node{" +
+        return "IntNode{" +
                 "value='" + value + '\'' +
                 ", height=" + height +
                 '}';

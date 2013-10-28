@@ -15,23 +15,23 @@ public class GraphTest {
     /**
      *     /-C--D
      *    /
-     * A--B--E
+     * A--B--F--G
      *    \
-     *     \-F--G
-     *    Shorttest path from A to F is ACF
+     *     \-E
+     *  DFS tree should be a, b, c, d, e, f, g
      */
-    public void getShortestPaths_returns_shortest_path() {
+    public void dfs() {
         List<Node> emptyList = new ArrayList<>();
 
         Node d = new Node("D", emptyList);
         Node c = new Node("C", Lists.newArrayList(d));
 
-        Node e = new Node("E", emptyList);
-
         Node g = new Node("G", emptyList);
         Node f = new Node("F", Lists.newArrayList(g));
 
-        Node b = new Node("B", Lists.newArrayList(c, e, f));
+        Node e = new Node("E", emptyList);
+
+        Node b = new Node("B", Lists.newArrayList(c, f, e));
 
         Node a = new Node("A", Lists.newArrayList(b));
 

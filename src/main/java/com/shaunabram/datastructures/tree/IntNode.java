@@ -1,11 +1,11 @@
-package com.shaunabram.datastructures.binarysearchtree;
+package com.shaunabram.datastructures.tree;
 
-public class Node {
+public class IntNode {
     Integer value;
-    Node left;
-    Node right;
+    IntNode left;
+    IntNode right;
 
-    Node(Integer value) {
+    IntNode(Integer value) {
         this.value = value;
     }
 
@@ -13,17 +13,17 @@ public class Node {
         return value;
     }
 
-    public Node getLeft() {
+    public IntNode getLeft() {
         return left;
     }
 
-    public Node getRight() {
+    public IntNode getRight() {
         return right;
     }
 
     @Override
     public String toString() {
-        return "Node{" +
+        return "IntNode{" +
                 "value=" + value +
                 ", left=" + left +
                 ", right=" + right +

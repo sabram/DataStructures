@@ -48,7 +48,7 @@ public class Node {
 
     @Override
     public String toString() {
-        return "Node{" +
+        return "IntNode{" +
                 "value=" + value +
                 ", explored=" + explored +
                 '}';

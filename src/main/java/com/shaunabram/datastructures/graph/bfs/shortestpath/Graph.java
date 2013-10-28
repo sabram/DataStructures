@@ -18,7 +18,7 @@ public class Graph implements IGraph {
 
     @Override
     public void addNode(Node v) {
-        if (adjacencyList.containsKey(v)) throw new RuntimeException("Node already exists in graph");
+        if (adjacencyList.containsKey(v)) throw new RuntimeException("IntNode already exists in graph");
         adjacencyList.put(v, new ArrayList<Node>());
     }
 
@@ -28,11 +28,11 @@ public class Graph implements IGraph {
      */
     public void addEdge(Node v1, Node v2) {
         List<Node> neighboursOfv1 = adjacencyList.get(v1);
-        if (neighboursOfv1 == null) throw new RuntimeException("Node " + v1 + " doesn't exist");
+        if (neighboursOfv1 == null) throw new RuntimeException("IntNode " + v1 + " doesn't exist");
         if (!neighboursOfv1.contains(v2)) neighboursOfv1.add(v2);
 
         List<Node> neighboursOfv2 = adjacencyList.get(v2);
-        if (neighboursOfv2 == null) throw new RuntimeException("Node " + v2 + " doesn't exist");
+        if (neighboursOfv2 == null) throw new RuntimeException("IntNode " + v2 + " doesn't exist");
         if (!neighboursOfv2.contains(v1)) neighboursOfv2.add(v1);
     }
 
@@ -58,16 +58,13 @@ public class Graph implements IGraph {
         Map<Node, Node> parents = new HashMap<>();
 
         /**
-         * Each Integer represents the distance from source to each Node
+         * Each Integer represents the distance from source to each IntNode
          */
         Map<Node, Integer> distances = Maps.newHashMap();
-        for (Node node : adjacencyList.keySet()) {
-            distances.put(node, null);
-        }
         distances.put(source, 0);
         //end initialization
 
-        //we track which nodes have been explored by using a boolean in Node itself.
+        //we track which nodes have been explored by using a boolean in IntNode itself.
         source.setExplored(true);
         Queue<Node> q = new LinkedList<>();
         q.add(source);

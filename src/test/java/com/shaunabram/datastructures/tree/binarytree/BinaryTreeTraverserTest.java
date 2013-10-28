@@ -1,5 +1,6 @@
-package com.shaunabram.datastructures.binarytree;
+package com.shaunabram.datastructures.tree.binarytree;
 
+import com.shaunabram.datastructures.tree.StrNode;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -7,22 +8,22 @@ import static org.fest.assertions.Assertions.assertThat;
 
 public class BinaryTreeTraverserTest {
 
-    Node tree;
+    StrNode tree;
 
     @Before
     public void setup() {
-        Node c = new Node("c");
-        Node e = new Node("e");
-        Node h = new Node("h");
+        StrNode c = new StrNode("c");
+        StrNode e = new StrNode("e");
+        StrNode h = new StrNode("h");
 
-        Node a = new Node("a");
-        Node d = new Node("d", c, e);
-        Node i = new Node("i", h, null);
+        StrNode a = new StrNode("a");
+        StrNode d = new StrNode("d", c, e);
+        StrNode i = new StrNode("i", h, null);
 
-        Node b = new Node("b", a, d);
-        Node g = new Node("g", null, i);
+        StrNode b = new StrNode("b", a, d);
+        StrNode g = new StrNode("g", null, i);
 
-        Node f = new Node("f", b, g);
+        StrNode f = new StrNode("f", b, g);
         tree = f;
     }
 

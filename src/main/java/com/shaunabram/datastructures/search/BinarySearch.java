@@ -14,25 +14,45 @@ import java.util.Arrays;
 public class BinarySearch {
 
 
+//    public static int recursive(int[] ar, int target) {
+//        int lower = 0;
+//        int upper = ar.length-1;
+//        while (lower <= upper) {
+//            int candidateIndex = mid(lower, upper);
+//            int candidate = ar[candidateIndex];
+//            if (candidate < target) {
+//                lower = candidateIndex + 1;
+//                int[] newar = Arrays.copyOfRange(ar, lower, upper + 1);
+//                recursive(newar, target);
+//            } else if (candidate > target) {
+//                upper = candidateIndex - 1;
+//                int[] newar = Arrays.copyOfRange(ar, lower, upper + 1);
+//                recursive(newar, target);
+//            } else {
+//                return candidateIndex;
+//            }
+//        }
+//        return -1;
+//    }
+
     public static int recursive(int[] ar, int target) {
+        if (ar == null) return -1;
+        if (ar.length == 0) return -1;
         int lower = 0;
         int upper = ar.length-1;
-        while (lower <= upper) {
-            int candidateIndex = mid(lower, upper);
-            int candidate = ar[candidateIndex];
-            if (candidate < target) {
-                lower = candidateIndex + 1;
-                int[] newar = Arrays.copyOfRange(ar, lower, upper + 1);
-                recursive(newar, target);
-            } else if (candidate > target) {
-                upper = candidateIndex - 1;
-                int[] newar = Arrays.copyOfRange(ar, lower, upper + 1);
-                recursive(newar, target);
-            } else {
-                return candidateIndex;
-            }
+        return recursive(ar, target, lower, upper);
+    }
+
+    private static int recursive(int[] ar, int target, int lower, int upper) {
+        if (lower > upper) return -1;
+        int mid = mid(lower, upper);
+        if (ar[mid] == target) return mid;
+        else if (ar[mid]<target) {
+            lower = mid+1;
+        } else if (ar[mid] > target) {
+            upper = mid-1;
         }
-        return -1;
+        return recursive(ar, target, lower, upper);
     }
 
     public static int iterative(int[] ar, int target) {

@@ -9,7 +9,7 @@ public class Graph {
 
     public Graph(List<Node> nodes) {
         for (Node node : nodes) {
-            if (adjacencyList.get(node)!=null) throw new RuntimeException("Node already exists: " + node);
+            if (adjacencyList.get(node)!=null) throw new RuntimeException("IntNode already exists: " + node);
             adjacencyList.put(node, new ArrayList<Edge>());
         }
     }
@@ -17,7 +17,7 @@ public class Graph {
     /**
      * Connect two nodes with an edge
      *
-     * I think we should probably get rid of Node node
+     * I think we should probably get rid of IntNode node
      * and just do
      * src = edge.getSource
      * destination = edge.getDestination()
@@ -25,7 +25,7 @@ public class Graph {
     public void addEdge(Edge edge) {
         Node source = edge.getSource();
         List<Edge> neighboursOfSource = adjacencyList.get(source);
-        if (neighboursOfSource == null) throw new RuntimeException("Node " + source + " doesn't exist");
+        if (neighboursOfSource == null) throw new RuntimeException("IntNode " + source + " doesn't exist");
         if (!neighboursOfSource.contains(edge)) neighboursOfSource.add(edge);
     }
 

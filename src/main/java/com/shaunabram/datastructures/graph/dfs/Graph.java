@@ -3,6 +3,7 @@ package com.shaunabram.datastructures.graph.dfs;
 import com.google.common.collect.Lists;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Graph {
@@ -16,6 +17,7 @@ public class Graph {
         if (children != null && children.size()>=0) {
             for (Node child : children) {
                 List<Node> subTree = dfs(child);
+                Collections.sort(subTree);
                 dfsTree.addAll(subTree);
             }
         }

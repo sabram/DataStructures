@@ -1,8 +1,10 @@
-package com.shaunabram.datastructures.binarytree;
+package com.shaunabram.datastructures.tree.binarytree;
+
+import com.shaunabram.datastructures.tree.StrNode;
 
 public class BinaryTreeTraverser {
 
-    public static String preOrder(Node node) {
+    public static String preOrder(StrNode node) {
         if (node == null) return "";
         StringBuilder sb = new StringBuilder();
         sb.append(node.getValue());
@@ -11,7 +13,7 @@ public class BinaryTreeTraverser {
         return sb.toString();
     }
 
-    public static String inOrder(Node node) {
+    public static String inOrder(StrNode node) {
         if (node == null) return "";
         StringBuilder sb = new StringBuilder();
         sb.append(inOrder(node.getLeft()));
@@ -20,7 +22,7 @@ public class BinaryTreeTraverser {
         return sb.toString();
     }
 
-    public static String postOrder(Node node) {
+    public static String postOrder(StrNode node) {
         if (node == null) return "";
         StringBuilder sb = new StringBuilder();
         sb.append(postOrder(node.getLeft()));

@@ -1,7 +1,8 @@
-package com.shaunabram.datastructures.binarytree;
+package com.shaunabram.datastructures.tree.binarytree;
 
+import com.shaunabram.datastructures.tree.StrNode;
 import org.junit.Test;
-import static com.shaunabram.datastructures.binarytree.BinaryTree.*;
+import static com.shaunabram.datastructures.tree.binarytree.BinaryTree.*;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -14,7 +15,7 @@ public class BinaryTreeTest {
 
     @Test
     public void isBalanced_true_for_single_node() {
-        Node root = new Node("A");
+        StrNode root = new StrNode("A");
         assertTrue(isBalanced(root));
     }
 
@@ -25,8 +26,8 @@ public class BinaryTreeTest {
      *         b
      */
     public void isBalanced_true_for_root_plus_one_child() {
-        Node b = new Node("b");
-        Node root = new Node("a", b, null);
+        StrNode b = new StrNode("b");
+        StrNode root = new StrNode("a", b, null);
         assertTrue(isBalanced(root));
     }
 
@@ -37,9 +38,9 @@ public class BinaryTreeTest {
      *         b   c
      */
     public void isBalanced_true_for_root_plus_two_child() {
-        Node b = new Node("b");
-        Node c = new Node("c");
-        Node root = new Node("a", b, c);
+        StrNode b = new StrNode("b");
+        StrNode c = new StrNode("c");
+        StrNode root = new StrNode("a", b, c);
         assertTrue(isBalanced(root));
     }
 
@@ -52,9 +53,9 @@ public class BinaryTreeTest {
      *       c
      */
     public void isBalanced_false_for_root_plus_child_plus_child() {
-        Node c = new Node("c");
-        Node b = new Node("b", c, null);
-        Node root = new Node("a", b, null);
+        StrNode c = new StrNode("c");
+        StrNode b = new StrNode("b", c, null);
+        StrNode root = new StrNode("a", b, null);
         assertFalse(isBalanced(root));
     }
 
@@ -72,17 +73,17 @@ public class BinaryTreeTest {
      *
      */
     public void isBalanced_false_for_complex_unbalanced() {
-        Node i = new Node("i");
-        Node g = new Node("g", i, null);
-        Node d = new Node("d", g, null);
-        Node e = new Node("e");
-        Node b = new Node("b", d, e);
+        StrNode i = new StrNode("i");
+        StrNode g = new StrNode("g", i, null);
+        StrNode d = new StrNode("d", g, null);
+        StrNode e = new StrNode("e");
+        StrNode b = new StrNode("b", d, e);
 
-        Node h = new Node("h");
-        Node f = new Node("f", h, null);
-        Node c = new Node("c", f, null);
+        StrNode h = new StrNode("h");
+        StrNode f = new StrNode("f", h, null);
+        StrNode c = new StrNode("c", f, null);
 
-        Node root = new Node("a", b, c);
+        StrNode root = new StrNode("a", b, c);
 
         assertFalse(isBalanced(root));
     }
@@ -99,18 +100,18 @@ public class BinaryTreeTest {
      *
      */
     public void isBalanced_true_for_complex_balanced() {
-        Node h = new Node("h");
-        Node i = new Node("i");
-        Node d = new Node("d", h, i);
+        StrNode h = new StrNode("h");
+        StrNode i = new StrNode("i");
+        StrNode d = new StrNode("d", h, i);
 
-        Node e = new Node("e");
-        Node b = new Node("b", d, e);
+        StrNode e = new StrNode("e");
+        StrNode b = new StrNode("b", d, e);
 
-        Node f = new Node("f");
-        Node g = new Node("g");
-        Node c = new Node("c", f, g);
+        StrNode f = new StrNode("f");
+        StrNode g = new StrNode("g");
+        StrNode c = new StrNode("c", f, g);
 
-        Node a = new Node("a", b, c);
+        StrNode a = new StrNode("a", b, c);
 
         assertTrue(isBalanced(a));
     }

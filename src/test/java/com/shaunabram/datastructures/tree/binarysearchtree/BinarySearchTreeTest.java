@@ -1,8 +1,7 @@
-package com.shaunabram.datastructures.binarysearchtree;
+package com.shaunabram.datastructures.tree.binarysearchtree;
 
-import com.shaunabram.datastructures.binarysearchtree.BinarySearchTree;
-import com.shaunabram.datastructures.binarysearchtree.Node;
 import com.google.common.collect.Lists;
+import com.shaunabram.datastructures.tree.IntNode;
 import org.junit.Test;
 
 import java.util.List;
@@ -16,7 +15,7 @@ public class BinarySearchTreeTest {
     public void add_simple_unbalanced() {
         BinarySearchTree bst = new BinarySearchTree();
         bst.add(1,2,3);
-        Node root = bst.getRoot();
+        IntNode root = bst.getRoot();
         assertThat(root.getLeft()).isNull();
         assertThat(root.getRight().getValue()).isEqualTo(2);
         assertThat(root.getRight().getLeft()).isNull();
@@ -27,7 +26,7 @@ public class BinarySearchTreeTest {
     public void add_simple_balanced() {
         BinarySearchTree bst = new BinarySearchTree();
         bst.add(2,1,3);
-        Node root = bst.getRoot();
+        IntNode root = bst.getRoot();
         assertThat(root.getValue()).isEqualTo(2);
         assertThat(root.getLeft().getValue()).isEqualTo(1);
         assertThat(root.getRight().getValue()).isEqualTo(3);
@@ -57,7 +56,7 @@ public class BinarySearchTreeTest {
 //        BinarySearchTree bst = new BinarySearchTree();
 //        bst.add(1,4,2,3);
 //        for (int i=1; i<=4; i++) {
-//            Node node = bst.select(i);
+//            IntNode node = bst.select(i);
 //            assertThat(node.getValue()).isEqualTo(i);
 //        }
 //    }
@@ -67,7 +66,7 @@ public class BinarySearchTreeTest {
 //        BinarySearchTree bst = new BinarySearchTree();
 //        bst.add(2,8,4,6);
 //        for (int i=1; i<=4; i++) {
-//            Node node = bst.select(i);
+//            IntNode node = bst.select(i);
 //            assertThat(node.getValue()).isEqualTo(i*2);
 //        }
 //    }
@@ -77,7 +76,7 @@ public class BinarySearchTreeTest {
 //        BinarySearchTree bst = new BinarySearchTree();
 //        bst.add(8,1,7,6,4,2,5,3);
 //        for (int i=1; i<=8; i++) {
-//            Node node = bst.select(i);
+//            IntNode node = bst.select(i);
 //            assertThat(node.getValue()).isEqualTo(i);
 //        }
 //    }
@@ -88,7 +87,7 @@ public class BinarySearchTreeTest {
 //        bst.add(1,4,2,3);
 //        int expectedRank = 4;
 //        for (int i=1; i<=4; i++) {
-//            Node node = bst.rank(i);
+//            IntNode node = bst.rank(i);
 //            assertThat(node.getValue()).isEqualTo(expectedRank--);
 //        }
 //    }

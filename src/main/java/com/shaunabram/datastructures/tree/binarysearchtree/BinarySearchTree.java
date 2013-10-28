@@ -1,24 +1,26 @@
-package com.shaunabram.datastructures.binarysearchtree;
+package com.shaunabram.datastructures.tree.binarysearchtree;
+
+import com.shaunabram.datastructures.tree.IntNode;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class BinarySearchTree {
-    Node root;
+    IntNode root;
 
-    public Node getRoot() {
+    public IntNode getRoot() {
         return root;
     }
 
     public void add(Integer... nums) {
         for (Integer num : nums) {
-            Node newNode = new Node(num);
+            IntNode newNode = new IntNode(num);
 
             if (root==null) {
                 root = newNode;
             } else {
-                Node nextNode = root;
-                Node parent = null;
+                IntNode nextNode = root;
+                IntNode parent = null;
                 while (nextNode!=null) {
                     parent = nextNode;
                     if (nextNode.value < num) {
@@ -42,7 +44,7 @@ public class BinarySearchTree {
         return inOrder(root, inOrder);
     }
 
-    private List<Integer> inOrder(Node node, List<Integer> list) {
+    private List<Integer> inOrder(IntNode node, List<Integer> list) {
         if (node.getLeft() != null) {
             inOrder(node.getLeft(), list);
         }
@@ -53,7 +55,7 @@ public class BinarySearchTree {
         return list;
     }
 
-    public Node predecessor(Integer i) {
+    public IntNode predecessor(Integer i) {
         return null;
     }
 }

@@ -1,8 +1,10 @@
-package com.shaunabram.datastructures.binarytree;
+package com.shaunabram.datastructures.tree.binarytree;
+
+import com.shaunabram.datastructures.tree.StrNode;
 
 public class BinaryTree {
 
-    public static boolean isBalanced(Node node) {
+    public static boolean isBalanced(StrNode node) {
         if (node==null) return true;
         int height = getHeight(node);
         if (height==-1)  {
@@ -12,7 +14,7 @@ public class BinaryTree {
         }
     }
 
-    private static int getHeight(Node node) {
+    private static int getHeight(StrNode node) {
         if (node == null) return 0;
         int leftHeight = getHeight(node.getLeft());
         int rightHeight = getHeight(node.getRight());

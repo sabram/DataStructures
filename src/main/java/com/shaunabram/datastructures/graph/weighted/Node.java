@@ -26,7 +26,7 @@ public class Node {
 
     @Override
     public String toString() {
-        return "Node{" +
+        return "IntNode{" +
                 "id=" + getId() +
                 ", value=" + getValue() +
                 '}';
