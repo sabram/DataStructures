@@ -23,17 +23,17 @@ public class BinarySearchTree {
                 IntNode parent = null;
                 while (nextNode!=null) {
                     parent = nextNode;
-                    if (nextNode.value < num) {
-                        nextNode = nextNode.right;
+                    if (nextNode.getValue() < num) {
+                        nextNode = nextNode.getRight();
                     } else {
-                        nextNode = nextNode.left;
+                        nextNode = nextNode.getLeft();
                     }
                 }
 
-                if (parent.value < num) {
-                   parent.right = newNode;
+                if (parent.getValue() < num) {
+                   parent.setRight(newNode);
                 } else {
-                    parent.left = newNode;
+                    parent.setLeft(newNode);
                 }
             }
         }

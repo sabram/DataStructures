@@ -1,5 +1,6 @@
 package com.shaunabram.datastructures.tree.binarytree;
 
+import com.shaunabram.datastructures.tree.IntNode;
 import com.shaunabram.datastructures.tree.StrNode;
 import org.junit.Test;
 
@@ -8,19 +9,21 @@ import static org.fest.assertions.Assertions.assertThat;
 public class BinaryTreeSerializerTest {
 
     @Test
-    /**
-     *     1
-     *    / \
-     *   2   3
-     *  / \   \
-     * 4   5   7
-     */
     public void serialize() {
         BinaryTreeSerializer bst = new BinaryTreeSerializer();
-        StrNode n1 = createTree();
+        IntNode n1 = createTree();
         String serialized = bst.serialize(n1);
         assertThat(serialized).isEqualTo("1,2,4,5,3,EMPTY,7,");
     }
+
+
+    //wways to do this
+    //1) take string an store in an array. e.g. parent = i/2
+    //problem is that this requres keeping the whole tree (string and arrat representation of) in memory
+    //2) you know that at each level, you are going to have log 2^n entries, and
+    //log 2^n+1 entries on the next level
+    //so read ahead next 2^ entries, and 2 at a time, put them in parents...
+
 
 //    public void deserialize() {
 //        BinaryTreeSerializer bst = new BinaryTreeSerializer();
@@ -30,13 +33,20 @@ public class BinaryTreeSerializerTest {
 //        assertThat(expectedTree).isEqualTo(actualTree);
 //    }
 
-    private StrNode createTree() {
-        StrNode n7 = new StrNode(7, null, null);
-        StrNode n3 = new StrNode(3, null, n7);
-        StrNode n5 = new StrNode(5, null, null);
-        StrNode n4 = new StrNode(4, null, null);
-        StrNode n2 = new StrNode(2, n4, n5);
-        return new StrNode(1, n2, n3);
+    /**
+     *     1
+     *    / \
+     *   2   3
+     *  / \   \
+     * 4   5   7
+     */
+    private IntNode createTree() {
+        IntNode n7 = new IntNode(7, null, null);
+        IntNode n3 = new IntNode(3, null, n7);
+        IntNode n5 = new IntNode(5, null, null);
+        IntNode n4 = new IntNode(4, null, null);
+        IntNode n2 = new IntNode(2, n4, n5);
+        return new IntNode(1, n2, n3);
     }
 }
 

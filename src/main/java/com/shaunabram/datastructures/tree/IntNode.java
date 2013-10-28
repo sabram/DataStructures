@@ -1,12 +1,18 @@
 package com.shaunabram.datastructures.tree;
 
 public class IntNode {
-    Integer value;
+    private final Integer value;
     IntNode left;
     IntNode right;
 
-    IntNode(Integer value) {
+    public IntNode(Integer value) {
         this.value = value;
+    }
+
+    public IntNode(Integer value, IntNode left, IntNode right) {
+        this.value = value;
+        this.left = left;
+        this.right = right;
     }
 
     public Integer getValue() {
@@ -28,5 +34,13 @@ public class IntNode {
                 ", left=" + left +
                 ", right=" + right +
                 '}';
+    }
+
+    public void setRight(IntNode right) {
+        this.right = right;
+    }
+
+    public void setLeft(IntNode left) {
+        this.left = left;
     }
 }
