@@ -5,7 +5,6 @@ public class StrNode {
     private final String value;
     private final StrNode left;
     private final StrNode right;
-    private Integer height = null;
 
     public StrNode(String value) {
         this.value = value;
@@ -31,14 +30,6 @@ public class StrNode {
         return right;
     }
 
-    public Integer getHeight() {
-        return height;
-    }
-
-    public void setHeight(Integer height) {
-        this.height = height;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -58,9 +49,8 @@ public class StrNode {
 
     @Override
     public String toString() {
-        return "IntNode{" +
+        return "StrNode{" +
                 "value='" + value + '\'' +
-                ", height=" + height +
                 '}';
     }
 }
