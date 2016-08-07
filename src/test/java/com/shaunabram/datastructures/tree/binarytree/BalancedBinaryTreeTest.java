@@ -1,8 +1,5 @@
 package com.shaunabram.datastructures.tree.binarytree;
 
-//can be used to test any of the BalancedBinaryTree implementations: A, B, C
-import static com.shaunabram.datastructures.tree.binarytree.BalancedBinaryTreeC.*;
-
 import com.shaunabram.datastructures.tree.Node;
 import org.junit.Test;
 import static org.junit.Assert.assertFalse;
@@ -10,15 +7,18 @@ import static org.junit.Assert.assertTrue;
 
 public class BalancedBinaryTreeTest {
 
+    //can be used to test any of the BalancedBinaryTree implementations: A, B, C
+    BalancedBinaryTree tree = new BalancedBinaryTreeC();
+    
     @Test
     public void isBalanced_true_for_null_node() {//empty tree
-        assertTrue(isBalanced(null));
+        assertTrue(tree.isBalanced(null));
     }
 
     @Test
     public void isBalanced_true_for_single_node() {
         Node root = new Node("A");
-        assertTrue(isBalanced(root));
+        assertTrue(tree.isBalanced(root));
     }
 
     @Test
@@ -30,7 +30,7 @@ public class BalancedBinaryTreeTest {
     public void isBalanced_true_for_root_plus_one_child() {
         Node b = new Node("b");
         Node root = new Node("a", b, null);
-        assertTrue(isBalanced(root));
+        assertTrue(tree.isBalanced(root));
     }
 
     @Test
@@ -42,8 +42,10 @@ public class BalancedBinaryTreeTest {
     public void isBalanced_true_for_root_plus_two_child() {
         Node b = new Node("b");
         Node c = new Node("c");
-        Node root = new Node("a", b, c);
-        assertTrue(isBalanced(root));
+        Node a = new Node("a", b, c);
+        System.out.println("Tree size = " + Node.getSize(a));
+        assertTrue(tree.isBalanced(a));
+        System.out.println("Nodes traversed = " + BalancedBinaryTree.traversedNodeCount);
     }
 
     @Test
@@ -57,9 +59,10 @@ public class BalancedBinaryTreeTest {
     public void isBalanced_false_for_root_plus_child_plus_child() {
         Node c = new Node("c");
         Node b = new Node("b", c, null);
-        Node root = new Node("a", b, null);
-        boolean balanced = isBalanced(root);
-        assertFalse(balanced);
+        Node a = new Node("a", b, null);
+        System.out.println("Tree size = " + Node.getSize(a));
+        assertFalse(tree.isBalanced(a));
+        System.out.println("Nodes traversed = " + BalancedBinaryTree.traversedNodeCount);
     }
 
     @Test
@@ -86,9 +89,11 @@ public class BalancedBinaryTreeTest {
         Node f = new Node("f", h, null);
         Node c = new Node("c", f, null);
 
-        Node root = new Node("a", b, c);
+        Node a = new Node("a", b, c);
 
-        assertFalse(isBalanced(root));
+        System.out.println("Tree size = " + Node.getSize(a));
+        assertFalse(tree.isBalanced(a));
+        System.out.println("Nodes traversed = " + BalancedBinaryTree.traversedNodeCount);
     }
 
     @Test
@@ -116,7 +121,9 @@ public class BalancedBinaryTreeTest {
 
         Node a = new Node("a", b, c);
 
-        assertTrue(isBalanced(a));
+        System.out.println("Tree size = " + Node.getSize(a));
+        assertTrue(tree.isBalanced(a));
+        System.out.println("Nodes traversed = " + BalancedBinaryTree.traversedNodeCount);
     }
 
     @Test
@@ -150,8 +157,8 @@ public class BalancedBinaryTreeTest {
 
         Node a = new Node("a", b, c);
         System.out.println("Tree size = " + Node.getSize(a));
-        assertTrue(isBalanced(a));
-        System.out.println("Nodes traversed = " + traversedNodeCount);
+        assertTrue(tree.isBalanced(a));
+        System.out.println("Nodes traversed = " + BalancedBinaryTree.traversedNodeCount);
     }
 
     @Test
@@ -204,8 +211,8 @@ public class BalancedBinaryTreeTest {
 
         Node a = new Node("a", b, c);
         System.out.println("Tree size = " + Node.getSize(a));
-        assertTrue(isBalanced(a));
-        System.out.println("Nodes traversed = " + traversedNodeCount);
+        assertTrue(tree.isBalanced(a));
+        System.out.println("Nodes traversed = " + BalancedBinaryTree.traversedNodeCount);
     }
 
 }

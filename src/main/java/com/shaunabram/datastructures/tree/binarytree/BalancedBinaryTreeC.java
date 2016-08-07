@@ -2,33 +2,32 @@ package com.shaunabram.datastructures.tree.binarytree;
 
 import com.shaunabram.datastructures.tree.Node;
 
-//Better than "niave" implementation, uses memoization
-public class BalancedBinaryTreeC {
+//Better than "niave" implementation
+public class BalancedBinaryTreeC extends BalancedBinaryTree {
 
-    static int traversedNodeCount = 1;
-
-    public static boolean isBalanced(Node node) {
-        if (node==null) return true; //base case
-
-        int leftHeight = getHeight(node.getLeft());
-        int rightHeight = getHeight(node.getRight());
-        int difference = Math.abs(leftHeight-rightHeight);
-
-        if (difference>1) return false;
-        else return isBalanced(node.getLeft()) &&
-                isBalanced(node.getRight());
+    public boolean isBalanced(Node node) {
+        if (node==null) return true;
+        int height = getHeight(node);
+        return (height !=- 1);
     }
 
-    private static int getHeight(Node node) {
+    int getHeight(Node node) {
         if (node == null) return 0;
         traversedNodeCount++;
         System.out.println(node.getValue());
-        if (node.getHeight() != null) return node.getHeight();
         int leftHeight = getHeight(node.getLeft());
         int rightHeight = getHeight(node.getRight());
-        int height = Math.abs(leftHeight - rightHeight) + 1;
-        node.setHeight(height);
-        return height;
+        if (leftHeight==-1 || rightHeight==-1) {
+            return -1;
+        } else {
+            int heightDifference = Math.abs(leftHeight - rightHeight);
+            if (heightDifference>1) {
+                return -1;
+            } else {
+                int height = heightDifference + 1;
+                return height;
+            }
+        }
     }
 
 }

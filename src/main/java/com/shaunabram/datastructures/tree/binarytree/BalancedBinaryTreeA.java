@@ -3,11 +3,9 @@ package com.shaunabram.datastructures.tree.binarytree;
 import com.shaunabram.datastructures.tree.Node;
 
 //Naive implementation
-public class BalancedBinaryTreeA {
+public class BalancedBinaryTreeA extends BalancedBinaryTree {
 
-    static int traversedNodeCount = 1;
-
-    public static boolean isBalanced(Node node) {
+    public boolean isBalanced(Node node) {
         if (node==null) return true; //base case
 
         int leftHeight = getHeight(node.getLeft());
@@ -19,7 +17,7 @@ public class BalancedBinaryTreeA {
                 isBalanced(node.getRight());
     }
 
-    private static int getHeight(Node node) {
+    int getHeight(Node node) {
         if (node == null) return 0;
         traversedNodeCount++;
         System.out.println(node.getValue());
