@@ -1,7 +1,6 @@
 package com.shaunabram.datastructures.tree.binarytree;
 
 import com.shaunabram.datastructures.tree.IntNode;
-import com.shaunabram.datastructures.tree.StrNode;
 import org.junit.Test;
 
 import static org.fest.assertions.Assertions.assertThat;

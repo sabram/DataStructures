@@ -1,18 +1,18 @@
 package com.shaunabram.datastructures.tree;
 
-public class StrNode {
+public class Node {
 
     private final String value;
-    private final StrNode left;
-    private final StrNode right;
+    private final Node left;
+    private final Node right;
 
-    public StrNode(String value) {
+    public Node(String value) {
         this.value = value;
         this.left = null;
         this.right = null;
     }
 
-    public StrNode(String value, StrNode left, StrNode right) {
+    public Node(String value, Node left, Node right) {
         this.value = value;
         this.left = left;
         this.right = right;
@@ -22,11 +22,11 @@ public class StrNode {
         return value;
     }
 
-    public StrNode getLeft() {
+    public Node getLeft() {
         return left;
     }
 
-    public StrNode getRight() {
+    public Node getRight() {
         return right;
     }
 
@@ -35,7 +35,7 @@ public class StrNode {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        StrNode node = (StrNode) o;
+        Node node = (Node) o;
 
         if (value != null ? !value.equals(node.value) : node.value != null) return false;
 
@@ -49,7 +49,7 @@ public class StrNode {
 
     @Override
     public String toString() {
-        return "StrNode{" +
+        return "Node{" +
                 "value='" + value + '\'' +
                 '}';
     }

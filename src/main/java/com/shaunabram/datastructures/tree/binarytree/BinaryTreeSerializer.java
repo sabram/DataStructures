@@ -1,9 +1,7 @@
 package com.shaunabram.datastructures.tree.binarytree;
 
 import com.shaunabram.datastructures.tree.IntNode;
-import com.shaunabram.datastructures.tree.StrNode;
-
-import java.util.StringTokenizer;
+import com.shaunabram.datastructures.tree.Node;
 
 /**
  * You have Binary tree. This binary is going to be serialized and transferred to you server.
@@ -13,7 +11,7 @@ import java.util.StringTokenizer;
 public class BinaryTreeSerializer {
 
     private static final String EMPTY = "EMPTY";
-    public StrNode deserialize(String tree) {
+    public Node deserialize(String tree) {
 //        StringTokenizer tokenizer = new StringTokenizer(tree);
 //        int count = 0;
 //        while(tokenizer.hasMoreElements()) {
@@ -28,13 +26,13 @@ public class BinaryTreeSerializer {
 //            boolean isLeft = true;
 //            if (count == 0) {
 ////                // root node
-////                StrNode root = new StrNode(next);
+////                Node root = new Node(next);
 ////                parent = root;
 ////            } else {
 //                if (next.equals(EMPTY)) {
 //                    isLeft = !isLeft;
 //                } else {
-//                    child = new StrNode(next);
+//                    child = new Node(next);
 //                    if (isLeft) {
 //                        parent.setLeft(child);
 //                    } else {
