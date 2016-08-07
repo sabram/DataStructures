@@ -2,8 +2,8 @@ package com.shaunabram.datastructures.tree.binarytree;
 
 import com.shaunabram.datastructures.tree.Node;
 
-//Naive implementation
-public class BalancedBinaryTreeA {
+//Better than "niave" implementation, uses memoization
+public class BalancedBinaryTreeC {
 
     static int traversedNodeCount = 1;
 
@@ -23,9 +23,12 @@ public class BalancedBinaryTreeA {
         if (node == null) return 0;
         traversedNodeCount++;
         System.out.println(node.getValue());
+        if (node.getHeight() != null) return node.getHeight();
         int leftHeight = getHeight(node.getLeft());
         int rightHeight = getHeight(node.getRight());
-        return Math.abs(leftHeight - rightHeight) + 1;
+        int height = Math.abs(leftHeight - rightHeight) + 1;
+        node.setHeight(height);
+        return height;
     }
 
 }

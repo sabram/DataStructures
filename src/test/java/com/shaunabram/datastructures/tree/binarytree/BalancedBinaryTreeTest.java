@@ -1,7 +1,7 @@
 package com.shaunabram.datastructures.tree.binarytree;
 
-//can be used to test BalancedBinaryTreeA or BalancedBinaryTreeB
-import static com.shaunabram.datastructures.tree.binarytree.BalancedBinaryTreeA.*;
+//can be used to test any of the BalancedBinaryTree implementations: A, B, C
+import static com.shaunabram.datastructures.tree.binarytree.BalancedBinaryTreeC.*;
 
 import com.shaunabram.datastructures.tree.Node;
 import org.junit.Test;
@@ -117,6 +117,95 @@ public class BalancedBinaryTreeTest {
         Node a = new Node("a", b, c);
 
         assertTrue(isBalanced(a));
+    }
+
+    @Test
+    /**
+     *            a
+     *         /     \
+     *        b        c
+     *       / \      /  \
+     *     d    e    f    g
+     *    / \  / \  / \  / \
+     *   h  i j  k l  m n   o
+     *
+     */
+    public void isBalanced_true_for_full_balanced() {
+        Node h = new Node("h");
+        Node i = new Node("i");
+        Node j = new Node("j");
+        Node k = new Node("k");
+        Node l = new Node("l");
+        Node m = new Node("m");
+        Node n = new Node("n");
+        Node o = new Node("o");
+
+        Node d = new Node("d", h, i);
+        Node e = new Node("e", j, k);
+        Node f = new Node("f", l, m);
+        Node g = new Node("g", n, o);
+
+        Node b = new Node("b", d, e);
+        Node c = new Node("c", f, g);
+
+        Node a = new Node("a", b, c);
+        System.out.println("Tree size = " + Node.getSize(a));
+        assertTrue(isBalanced(a));
+        System.out.println("Nodes traversed = " + traversedNodeCount);
+    }
+
+    @Test
+    /**
+     *                 a
+     *           /          \
+     *        b                  c
+     *       /    \           /     \
+     *     d       e         f       g
+     *    /  \    /  \      /   \    /   \
+     *   h   i   j    k    l    m   n    o
+     * / \  / \  / \ / \   / \  / \ / \ / \
+     *p  q r  s t  u v  w x  y z  A B C D E
+     *
+     */
+    public void isBalanced_true_for_big_full_balanced() {
+        Node p = new Node("p");
+        Node q = new Node("q");
+        Node r = new Node("r");
+        Node s = new Node("s");
+        Node t = new Node("t");
+        Node u = new Node("u");
+        Node v = new Node("v");
+        Node w = new Node("w");
+        Node x = new Node("x");
+        Node y = new Node("y");
+        Node z = new Node("z");
+        Node A = new Node("A");
+        Node B = new Node("B");
+        Node C = new Node("C");
+        Node D = new Node("D");
+        Node E = new Node("E");
+
+        Node h = new Node("h", p, q);
+        Node i = new Node("i", r, s);
+        Node j = new Node("j", t, u);
+        Node k = new Node("k", v, w);
+        Node l = new Node("l", x, y);
+        Node m = new Node("m", z, A);
+        Node n = new Node("n", B, C);
+        Node o = new Node("o", D, E);
+
+        Node d = new Node("d", h, i);
+        Node e = new Node("e", j, k);
+        Node f = new Node("f", l, m);
+        Node g = new Node("g", n, o);
+
+        Node b = new Node("b", d, e);
+        Node c = new Node("c", f, g);
+
+        Node a = new Node("a", b, c);
+        System.out.println("Tree size = " + Node.getSize(a));
+        assertTrue(isBalanced(a));
+        System.out.println("Nodes traversed = " + traversedNodeCount);
     }
 
 }

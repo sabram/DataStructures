@@ -5,6 +5,7 @@ public class Node {
     private final String value;
     private final Node left;
     private final Node right;
+    private Integer height;
 
     public Node(String value) {
         this.value = value;
@@ -30,6 +31,14 @@ public class Node {
         return right;
     }
 
+    public Integer getHeight() {
+        return height;
+    }
+
+    public void setHeight(Integer height) {
+        this.height = height;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -52,5 +61,10 @@ public class Node {
         return "Node{" +
                 "value='" + value + '\'' +
                 '}';
+    }
+
+    static public int getSize(Node node) {
+        if (node == null) return 0;
+        else return getSize(node.left) + getSize(node.right) + 1;
     }
 }
